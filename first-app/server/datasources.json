@@ -12,5 +12,17 @@
     "name": "mysqlDs",
     "user": "root",
     "connector": "mysql"
+  },
+  "mongoDs": {
+    "host": "cluster0.jzp7b.mongodb.net",
+    "port": 27017,
+    "url": "",
+    "database": "Cluster0",
+    "password": "7PBP7Bvc4vGYXdle",
+    "name": "mongoDs",
+    "user": "user",
+    "useNewUrlParser": true,
+    "connector": "mongodb",
+    "protocol": "mongodb+srv"
   }
 }
