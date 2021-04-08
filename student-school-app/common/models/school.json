@@ -1,0 +1,40 @@
+{
+  "name": "School",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "City": {
+      "type": "string",
+      "required": true
+    },
+    "Capacity": {
+      "type": "number",
+      "required": true
+    },
+    "PostCode": {
+      "type": "string",
+      "required": true
+    },
+    "eLearning": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "students": {
+      "type": "hasMany",
+      "model": "Student",
+      "foreignKey": "SchoolId",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Student",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "default": "Mario"
+    },
+    "Age": {
+      "type": "number",
+      "required": true
+    },
+    "Surname": {
+      "type": "string",
+      "required": true
+    },
+    "SchoolId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "school": {
+      "type": "belongsTo",
+      "model": "School",
+      "foreignKey": "SchoolId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "classrooms": {
+      "type": "hasMany",
+      "model": "Classroom",
+      "foreignKey": "",
+      "through": "Lecture"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

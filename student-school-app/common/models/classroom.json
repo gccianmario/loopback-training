@@ -1,0 +1,46 @@
+{
+  "name": "Classroom",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Floor": {
+      "type": "number",
+      "required": true
+    },
+    "Building": {
+      "type": "string",
+      "required": true
+    },
+    "Capacity": {
+      "type": "number",
+      "required": true
+    },
+    "isBusy": {
+      "type": "boolean",
+      "required": true
+    },
+    "SchoolId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "school": {
+      "type": "belongsTo",
+      "model": "School",
+      "foreignKey": "SchoolId"
+    },
+    "students": {
+      "type": "hasMany",
+      "model": "Student",
+      "foreignKey": "",
+      "through": "Lecture"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

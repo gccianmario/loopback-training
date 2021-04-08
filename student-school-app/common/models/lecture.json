@@ -1,0 +1,30 @@
+{
+  "name": "Lecture",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "testPropertyLecture": {
+      "type": "string",
+      "required": true,
+      "default": "BlaBla"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "student": {
+      "type": "belongsTo",
+      "model": "Student",
+      "foreignKey": ""
+    },
+    "classroom": {
+      "type": "belongsTo",
+      "model": "Classroom",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
