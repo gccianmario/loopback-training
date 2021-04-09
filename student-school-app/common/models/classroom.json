@@ -1,6 +1,7 @@
 {
   "name": "Classroom",
   "base": "PersistedModel",
+  "plurals": "Classrooms",
   "idInjection": true,
   "options": {
     "validateUpsert": true

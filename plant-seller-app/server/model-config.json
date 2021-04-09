@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlDs"
+  },
+  "AccessToken": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlDs",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "Supplier": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Specie": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Client": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Purchase": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "PriceHistory": {
+    "dataSource": "mysqlDs",
+    "public": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Client",
+  "plural": "Clients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "ssn": {
+      "type": "string"
+    },
+    "vatNumber": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "isPrivate": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "species": {
+      "type": "hasMany",
+      "model": "Specie",
+      "foreignKey": "client_id",
+      "through": "Purchase"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

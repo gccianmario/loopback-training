@@ -1,0 +1,70 @@
+{
+  "name": "Specie",
+  "plural": "Species",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "generated": true
+    },
+    "latinName": {
+      "type": "string",
+      "required": true
+    },
+    "commonName": {
+      "type": "string",
+      "required": true
+    },
+    "isForIndoor": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "isExotic": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "isEvergreen": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "colors": {
+      "type": [
+        "string"
+      ],
+      "default": [
+        "yellow",
+        "blue",
+        "pink"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "priceHistories": {
+      "type": "hasMany",
+      "model": "PriceHistory",
+      "foreignKey": "specie_id"
+    },
+    "supplier": {
+      "type": "belongsTo",
+      "model": "Supplier",
+      "foreignKey": "supplier_id"
+    },
+    "clients": {
+      "type": "hasMany",
+      "model": "Client",
+      "foreignKey": "spice_id",
+      "through": "Purchase"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

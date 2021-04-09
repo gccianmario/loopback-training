@@ -1,0 +1,29 @@
+{
+  "name": "PriceHistory",
+  "plural": "PriceHistories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "unitaryPrice": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "specie": {
+      "type": "belongsTo",
+      "model": "Specie",
+      "foreignKey": "specie_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Purchase",
+  "plural": "Purchases",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "quantity": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "specie": {
+      "type": "belongsTo",
+      "model": "Specie",
+      "foreignKey": "specie_id"
+    },
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "client_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
