@@ -1,0 +1,4 @@
+First time
+npm install -g loopback-cli
+lb 
+npm install -g strongloop

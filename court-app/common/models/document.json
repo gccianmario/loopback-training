@@ -1,0 +1,35 @@
+{
+  "name": "Document",
+  "plural": "Documents",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "resume": {
+      "type": "string",
+      "required": true
+    },
+    "numberPages": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documentOwner": {
+      "type": "belongsTo",
+      "polymorphic": {
+        "foreignKey": "documentOwner_Id",
+        "discriminator": "documentOwnerType"
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

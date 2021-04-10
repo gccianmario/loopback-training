@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlDs"
+  },
+  "AccessToken": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlDs",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "Court": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "TelephoneNumber": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "CourtAvailability": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Case": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Hearing": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Document": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Person": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Honor": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Achieved": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Participation": {
+    "dataSource": "mysqlDs",
+    "public": true
+  }
+}

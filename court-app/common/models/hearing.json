@@ -1,0 +1,41 @@
+{
+  "name": "Hearing",
+  "plural": "Hearings",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "room": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "startTime": {
+      "type": "string",
+      "required": true
+    },
+    "endTime": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documents": {
+      "type": "hasMany",
+      "model": "Document",
+      "polymorphic": {
+        "foreignKey": "documentOwner_Id",
+        "discriminator": "documentOwnerType"
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

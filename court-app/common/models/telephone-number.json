@@ -1,0 +1,27 @@
+{
+  "name": "TelephoneNumber",
+  "plural": "TelephoneNumbers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "number": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "telephoneHolder": {
+      "type": "belongsTo",
+      "polymorphic": {
+        "foreignKey": "telephoneHolder_Id",
+        "discriminator": "telephoneHolderType"
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

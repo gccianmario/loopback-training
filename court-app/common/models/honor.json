@@ -1,0 +1,30 @@
+{
+  "name": "Honor",
+  "plural": "Honors",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "people": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": "honor_id",
+      "through": "Achieved"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Case",
+  "plural": "Cases",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documents": {
+      "type": "hasMany",
+      "model": "Document",
+      "polymorphic": {
+        "foreignKey": "documentOwner_Id",
+        "discriminator": "documentOwnerType"
+      }
+    },
+    "people": {
+      "type": "hasMany",
+      "model": "Person",
+      "foreignKey": "case_id",
+      "through": "Participation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

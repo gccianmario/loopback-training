@@ -1,0 +1,27 @@
+{
+  "name": "CourtAvailability",
+  "plural": "CourtAvailabilities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "day": {
+      "type": "string",
+      "required": true
+    },
+    "openingTime": {
+      "type": "string",
+      "required": true
+    },
+    "closingTime": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

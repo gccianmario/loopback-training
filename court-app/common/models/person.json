@@ -1,0 +1,56 @@
+{
+  "name": "Person",
+  "plural": "Persons",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "isLawyer": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "officeAddress": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documents": {
+      "type": "hasMany",
+      "model": "Document",
+      "polymorphic": {
+        "foreignKey": "documentOwner_Id",
+        "discriminator": "documentOwnerType"
+      }
+    },
+    "cases": {
+      "type": "hasMany",
+      "model": "Case",
+      "foreignKey": "person_id",
+      "through": "Participation"
+    },
+    "honors": {
+      "type": "hasMany",
+      "model": "Honor",
+      "foreignKey": "person_id",
+      "through": "Achieved"
+    },
+    "telephoneNumbers": {
+      "type": "hasMany",
+      "model": "TelephoneNumber",
+      "polymorphic": {
+        "foreignKey": "telephoneHolder_Id",
+        "discriminator": "telephoneHolderType"
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
