@@ -1,0 +1,35 @@
+{
+  "name": "WorkSession",
+  "plural": "WorkSessions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "hours": {
+      "type": "number",
+      "required": true,
+      "default": 3
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pool": {
+      "type": "belongsTo",
+      "model": "Pool",
+      "foreignKey": "pool_name"
+    },
+    "teacher": {
+      "type": "belongsTo",
+      "model": "Teacher",
+      "foreignKey": "teacher_ssn"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

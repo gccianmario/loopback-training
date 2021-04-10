@@ -1,0 +1,50 @@
+{
+  "name": "Course",
+  "plural": "Courses",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "minParticipants": {
+      "type": "number",
+      "required": true,
+      "default": 10
+    },
+    "maxParticipants": {
+      "type": "number",
+      "required": true,
+      "default": 100
+    },
+    "scheduleDay-Hours": {
+      "type": [
+        "string"
+      ],
+      "required": true,
+      "default": [
+        "monday-2",
+        "friday-1.5"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "clients": {
+      "type": "hasMany",
+      "model": "Client",
+      "foreignKey": "course_id",
+      "through": "CourseParticipation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

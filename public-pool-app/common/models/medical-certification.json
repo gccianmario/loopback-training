@@ -1,0 +1,34 @@
+{
+  "name": "MedicalCertification",
+  "plural": "MedicalCertification",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "doctorName": {
+      "type": "string",
+      "required": true,
+      "default": "\"House\""
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "ageClient": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "client_ssn"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

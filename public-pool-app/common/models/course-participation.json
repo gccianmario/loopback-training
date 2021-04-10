@@ -1,0 +1,30 @@
+{
+  "name": "CourseParticipation",
+  "plural": "CourseParticipation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "client_ssn"
+    },
+    "course": {
+      "type": "belongsTo",
+      "model": "Course",
+      "foreignKey": "course_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

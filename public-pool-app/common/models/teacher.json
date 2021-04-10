@@ -1,0 +1,45 @@
+{
+  "name": "Teacher",
+  "plural": "Teachers",
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ssn": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "default": "AAAAAAA11"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "default": "+393345657588"
+    },
+    "qualifications": {
+      "type": [
+        "string"
+      ],
+      "required": true,
+      "default": [
+        "basic swimming diploma"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "pools": {
+      "type": "hasMany",
+      "model": "Pool",
+      "foreignKey": "teacher_ssn",
+      "through": "WorkSession"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Client",
+  "plural": "Clients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ssn": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "default": "\"+3428373545\""
+    },
+    "address": {
+      "type": "string"
+    },
+    "lastEnter": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "medicalCertifications": {
+      "type": "hasOne",
+      "model": "MedicalCertification",
+      "foreignKey": "client_ssn"
+    },
+    "courses": {
+      "type": "hasMany",
+      "model": "Course",
+      "foreignKey": "client_ssn",
+      "through": "CourseParticipation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
