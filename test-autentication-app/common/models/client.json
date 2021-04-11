@@ -1,0 +1,29 @@
+{
+  "name": "Client",
+  "plural": "Clients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "surname": {
+      "type": "string",
+      "required": true,
+      "default": "rossi"
+    },
+    "personalInfo": {
+      "type": "string",
+      "required": true,
+      "default": "Secret stuff"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

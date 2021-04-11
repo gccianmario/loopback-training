@@ -1,0 +1,19 @@
+{
+  "name": "LoggedDoc",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "justForYou": {
+      "type": "string",
+      "required": true,
+      "default": "Kinda secret"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
