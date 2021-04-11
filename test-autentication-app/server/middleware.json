@@ -32,7 +32,11 @@
   },
   "session": {},
   "auth": {
-    "loopback#token": {}
+    "loopback#token": {
+      "params": {
+        "currentUserLiteral": "me"
+      }
+    }
   },
   "parse": {},
   "routes": {
