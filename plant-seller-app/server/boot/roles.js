@@ -27,13 +27,13 @@ module.exports = (app, cb) => {
   //****************** aux functions ****************************
   const createUser = async(name, email, password) => {
     const userObj = {username: name, email: email, password: password}
-    await User.create(userObj)
+    return User.create(userObj)
   }
   const createUserFromObj = async(userObj) => {
-    await User.create(userObj)
+    return User.create(userObj)
   }
   const createRole = async(roleName) => {
-    await Role.create({
+    return Role.create({
       name: roleName,
     });
   };
@@ -111,8 +111,8 @@ module.exports = (app, cb) => {
                   assignRoleToUser(role[0], user[0])
                   .catch(e=>console.log("role assign error " +e))
               }).catch(e=>console.log("role attached check error" + e))
-          }).catch(e=>console.log("role creation if null error " +e))
-      }).catch((err)=>console.log("user research/cration error" + err))
+          }).catch(e=>console.log("role creation-if-null error " +e))
+      }).catch((err)=>console.log("user research/creation error" + err))
   })
 
   return cb()
