@@ -3,9 +3,10 @@
 module.exports = (app, cb) => {
   const User = app.models.User;
   const Role = app.models.Role;
+  const Employee = app.models.Employee;
   const RoleMapping = app.models.RoleMapping;
 
-  //assumption that the order of the user is matched below with his/her role
+  /*/ assumption that the order of the user is matched below with his/her role
   const usersDefault = [
     {username: 'John Boss', email: 'john@doe.com', password: '1234'},
     {username: 'Jane Vuoi Una Busta', email: 'jane@doe.com', password: 'aaa'},
@@ -21,6 +22,20 @@ module.exports = (app, cb) => {
     {name: 'warehouse worker'},
     {name: 'warehouse worker'},
     {name: 'superadmin'},
+  ];
+  */
+
+  const usersDefault = [
+    {username: "e1", email: "e1@gm.com",password:"1234", name: "e", surname: "1", userType:"manager", isActive: true},
+    {username: "e2", email: "e2@gm.com",password:"1234", name: "e", surname: "2", userType:"manager", isActive: true},
+    {username: "e3", email: "e3@gm.com",password:"1234", name: "e", surname: "3", userType:"cashier", isActive: true},
+    {username: "e4", email: "e4@gm.com",password:"1234", name: "e", surname: "4", userType:"warehouse worker", isActive: true},
+  ]
+  const rolesDefault = [
+    {name: 'manager'},
+    {name: 'manager'},
+    {name: 'cashier'},
+    {name: 'warehouse worker'},
   ];
 
 
@@ -92,13 +107,20 @@ module.exports = (app, cb) => {
       else return Role.create(roleObj)
     }).catch(err=>console.log("role exist check error " + err))*/
   }
+  const createEmployeeIfNull = async(employeeObj) => {
+    //employee obj: {username, email,password, name, surname, userType, isActive}
+    return Employee.findOrCreate({
+      where: {
+        email: employeeObj.email
+      }
+    },employeeObj)
+  }
   //**************************************************************
 
 
   // procedure that assign at the n-th user the n-th role within the default
   // lists, each role or user not existing is created otherwise found and extracted
-
-  usersDefault.forEach((userObj,i) => {
+  /* usersDefault.forEach((userObj,i) => {
     createUserIfNull(userObj)
       .then((user)=>{
         //console.log(user[0])
@@ -110,6 +132,24 @@ module.exports = (app, cb) => {
                   //core point of assignment
                   assignRoleToUser(role[0], user[0])
                   .catch(e=>console.log("role assign error " +e))
+              }).catch(e=>console.log("role attached check error" + e))
+          }).catch(e=>console.log("role creation-if-null error " +e))
+      }).catch((err)=>console.log("user research/creation error" + err))
+  }) */
+
+  //same procedure of above but for custom employee
+  usersDefault.forEach((userObj,i) => {
+    createEmployeeIfNull(userObj)
+      .then((user)=>{
+        //console.log(user[0])
+        createRoleIfNull(rolesDefault[i])
+          .then((role)=>{
+            roleAttached(role[0],user[0])
+              .then((isRoleAttached)=>{
+                if(!isRoleAttached)
+                  //core point of assignment
+                  assignRoleToUser(role[0], user[0])
+                    .catch(e=>console.log("role assign error " +e))
               }).catch(e=>console.log("role attached check error" + e))
           }).catch(e=>console.log("role creation-if-null error " +e))
       }).catch((err)=>console.log("user research/creation error" + err))

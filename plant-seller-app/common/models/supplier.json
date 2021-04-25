@@ -48,6 +48,12 @@
       "principalType": "ROLE",
       "principalId": "warehouse worker",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

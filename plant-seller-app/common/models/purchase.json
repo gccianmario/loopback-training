@@ -41,6 +41,12 @@
       "principalType": "ROLE",
       "principalId": "cashier",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
