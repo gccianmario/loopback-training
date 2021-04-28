@@ -1,16 +1,12 @@
 {
-  "name": "Supplier",
-  "plural": "Suppliers",
-  "base": "PersistedModel",
+  "name": "Employee",
+  "plural": "Employees",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "ssn": {
-      "type": "string",
-      "id": true
-    },
     "name": {
       "type": "string",
       "required": true
@@ -19,41 +15,38 @@
       "type": "string",
       "required": true
     },
-    "address": {
+    "userType": {
       "type": "string",
       "required": true
     },
-    "location": {
-      "type": "geopoint",
-      "default": "earth"
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "insertionDate": {
+      "type": "date"
     }
   },
   "validations": [],
-  "relations": {
-    "species": {
-      "type": "hasMany",
-      "model": "Specie",
-      "foreignKey": "supplier_id"
-    }
-  },
+  "relations": {},
   "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "DENY"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "warehouse worker",
-      "permission": "ALLOW"
-    },
     {
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "manager",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
     }
   ],
   "methods": {}
