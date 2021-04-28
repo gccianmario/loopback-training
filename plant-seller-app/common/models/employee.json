@@ -30,6 +30,13 @@
   "validations": [],
   "relations": {},
   "acls": [
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
     {
       "accessType": "READ",
       "principalType": "ROLE",
@@ -41,12 +48,6 @@
       "principalType": "ROLE",
       "principalId": "manager",
       "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "DENY"
     }
   ],
   "methods": {}
