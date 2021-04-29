@@ -11,11 +11,11 @@ const fetchSpecie = async (plantName) => {
 }
 
 module.exports = function(Specie) {
-  Specie.observe("after save", async (ctx) => {
 
+  //*********************** operation hooks ********************
+  Specie.observe("after save", async (ctx) => {
     if (ctx.isNewInstance) {
       const plantName = ctx.instance.commonName
-
       fetchSpecie(plantName).then((data) => {
         if (data !== undefined) {
           const plantObj = data[0]
@@ -35,4 +35,14 @@ module.exports = function(Specie) {
     }
     return
   })
+
+  //*********************** remote methods ********************
+  Specie.greet = async function(msg) {
+    return 'Greetings... ' + msg;
+  }
+
+  Specie.remoteMethod('greet', {
+    accepts: {arg: 'msg', type: 'string'},
+    returns: {arg: 'greeting', type: 'string'}
+  });
 };
