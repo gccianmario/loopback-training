@@ -11,6 +11,7 @@ const fetchSpecie = async (plantName) => {
 }
 
 module.exports = function(Specie) {
+  const app = require("../../server/server");
 
   //*********************** operation hooks ********************
   Specie.observe("after save", async (ctx) => {
@@ -36,13 +37,42 @@ module.exports = function(Specie) {
     return
   })
 
-  //*********************** remote methods ********************
-  Specie.greet = async function(msg) {
-    return 'Greetings... ' + msg;
+  //*********************** remote method's functions ********************
+  Specie.coloredWith = async function(color) {
+    const res = await app.models.Specie.find({
+      where: {
+        colors: {
+          like: `%${color}%`
+        }
+      }
+    })
+    //add custom logic to remove leak of precision of the "like"
+    //console.log(await res.length)
+    return res
+  }
+  Specie.purpleSpeciesPriceHistories = async function() {
+    const res = await app.models.Specie.find({
+      where: {
+        colors: {
+          like: `%purple%`
+        }
+      },
+      include: {
+        relation: "priceHistories"
+      }
+    })
+    //add custom logic to remove leak of precision of the "like"
+    console.log(await res.length)
+    //add custom logic to better organize the data, a json with all the single prices can be made if needed
+    return res
   }
 
-  Specie.remoteMethod('greet', {
-    accepts: {arg: 'msg', type: 'string'},
-    returns: {arg: 'greeting', type: 'string'}
+  //*********************** remote method ********************
+  Specie.remoteMethod('coloredWith', {
+    accepts: {arg: 'color', type: 'string'},
+    returns: {arg: 'data', type: 'object'}
+  });
+  Specie.remoteMethod('purpleSpeciesPriceHistories', {
+    returns: {arg: 'data', type: 'object'}
   });
 };
