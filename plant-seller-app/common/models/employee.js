@@ -30,8 +30,7 @@ module.exports = function(Employee) {
     } else {
       console.log("(not a catch) logic if an update occurs..")
     }
-    return
   })
-  
+
   // Employee.aCaso = async (a,b,c) => {return a.toString()}
 };
