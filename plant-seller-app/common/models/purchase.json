@@ -47,6 +47,12 @@
       "principalType": "ROLE",
       "principalId": "manager",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

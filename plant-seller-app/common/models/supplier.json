@@ -23,6 +23,10 @@
       "type": "string",
       "required": true
     },
+    "CAP": {
+      "type": "string",
+      "required": true
+    },
     "location": {
       "type": "geopoint",
       "default": "earth"
@@ -51,6 +55,12 @@
     },
     {
       "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "manager",
       "permission": "ALLOW"

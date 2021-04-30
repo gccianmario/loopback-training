@@ -8,13 +8,16 @@
   },
   "properties": {
     "id": {
-      "type": "number",
-      "id": true,
-      "generated": true
+      "type": "string",
+      "id": true
+    },
+    "slug": {
+      "type": "string",
+      "required": false
     },
     "latinName": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "commonName": {
       "type": "string",
@@ -95,6 +98,24 @@
       "principalType": "ROLE",
       "principalId": "manager",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW",
+      "property": "coloredWith"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW",
+      "property": "purpleSpeciesPriceHistories"
     }
   ],
   "methods": {}
