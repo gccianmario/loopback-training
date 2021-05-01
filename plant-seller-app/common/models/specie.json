@@ -116,6 +116,12 @@
       "principalId": "manager",
       "permission": "ALLOW",
       "property": "purpleSpeciesPriceHistories"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "manager",
+      "permission": "ALLOW",
+      "property": "allColors"
     }
   ],
   "methods": {}

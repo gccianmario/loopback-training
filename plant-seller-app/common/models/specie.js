@@ -66,10 +66,28 @@ module.exports = function(Specie) {
     //add custom logic to better organize the data, a json with all the single prices can be made if needed
     return res
   }
+  Specie.allColors = async function(){
+    const final =  await app.models.Specie.find().then((plants)=>{
+      let res = new Set()
+      plants.forEach((p)=>{
+        if(p.colors !== undefined){
+          p.colors.forEach(color=>{
+            res.add(color)
+          })
+        }
+      })
+      return res
+    })
+    //console.log(await final)
+   return [...final]
+  }
 
   //*********************** remote method ********************
   Specie.remoteMethod('coloredWith', {
     accepts: {arg: 'color', type: 'string'},
+    returns: {arg: 'data', type: 'object'}
+  });
+  Specie.remoteMethod('allColors', {
     returns: {arg: 'data', type: 'object'}
   });
   Specie.remoteMethod('purpleSpeciesPriceHistories', {
