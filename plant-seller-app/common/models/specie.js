@@ -81,8 +81,25 @@ module.exports = function(Specie) {
     //console.log(await final)
    return [...final]
   }
+  Specie.image = async function(id){
+    const plant = app.models.Specie.find({
+      where:{
+        id: id
+      }
+    })
+    //console.log(await plant)
+    if((await plant).length === 0)
+      return "https://c8.alamy.com/comp/2A4C5J3/oops-404-page-interface-design-with-plant-vector-illustration-vector-2A4C5J3.jpg"
 
-  //*********************** remote method ********************
+    const plantData = await fetchSpecie((await plant)[0].commonName)
+    if((await plantData).length === 0 || (await plantData)[0].image_url === undefined)
+      return "https://c8.alamy.com/comp/2A4C5J3/oops-404-page-interface-design-with-plant-vector-illustration-vector-2A4C5J3.jpg"
+
+    return (await plantData)[0].image_url
+
+  }
+
+  //*********************** remote methods ********************
   Specie.remoteMethod('coloredWith', {
     accepts: {arg: 'color', type: 'string'},
     returns: {arg: 'data', type: 'object'}
@@ -91,6 +108,10 @@ module.exports = function(Specie) {
     returns: {arg: 'data', type: 'object'}
   });
   Specie.remoteMethod('purpleSpeciesPriceHistories', {
+    returns: {arg: 'data', type: 'object'}
+  });
+  Specie.remoteMethod('image', {
+    accepts: {arg: 'id', type: 'string'},
     returns: {arg: 'data', type: 'object'}
   });
 };
