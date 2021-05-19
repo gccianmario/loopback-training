@@ -3,8 +3,21 @@
   "plural": "Species",
   "base": "PersistedModel",
   "idInjection": true,
+  "scopes": {
+    "smartPurpleSpecies": {
+      "where": {
+        "colors": {
+          "like": "%purple%"
+        }
+      },
+      "include": "priceHistories"
+    }
+  },
   "options": {
     "validateUpsert": true
+  },
+  "include": {
+    "relation": "priceHistories"
   },
   "properties": {
     "id": {

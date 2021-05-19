@@ -30,7 +30,6 @@
   "validations": [],
   "relations": {},
   "acls": [
-
     {
       "accessType": "*",
       "principalType": "ROLE",

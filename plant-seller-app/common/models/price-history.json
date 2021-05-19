@@ -6,6 +6,12 @@
   "options": {
     "validateUpsert": true
   },
+  "scope": {
+    "include": "specie"
+  },
+  "mixins": {
+    "ChangesHistory": true
+  },
   "properties": {
     "date": {
       "type": "date",
