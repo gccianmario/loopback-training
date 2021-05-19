@@ -12,5 +12,17 @@
     "name": "mysqlDs",
     "user": "root",
     "connector": "mysql"
+  },
+  "firebaseStorageDataSource": {
+    "name": "firebaseStorageDataSource",
+    "connector": "loopback-component-storage",
+    "provider": "google",
+    "projectId": "plant-seller"
+  },
+  "localStorage": {
+    "name": "localStorage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/storage"
   }
 }

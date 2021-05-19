@@ -8,9 +8,9 @@
     ],
     "mixins": [
       "loopback/common/mixins",
-      "loopback/server/mixins",
       "../common/mixins",
-      "./mixins"
+      "./mixins",
+      "../node_modules/loopback-changes-history-mixin"
     ]
   },
   "User": {
@@ -57,6 +57,14 @@
   },
   "Employee": {
     "dataSource": "mysqlDs",
+    "public": true
+  },
+  "firebaseContainer": {
+    "dataSource": "firebaseStorageDataSource",
+    "public": true
+  },
+  "localContainer": {
+    "dataSource": "localStorage",
     "public": true
   }
 }
